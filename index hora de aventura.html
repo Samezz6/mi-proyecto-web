@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hora de Aventura | Tierra de Ooo</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts: Fredoka & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --at-yellow: #FFCB05;
+      --at-blue: #00A8E8;
+      --at-pink: #FF66B2;
+      --at-green: #7BC043;
+      --at-dark: #2B2D42;
+      --at-light: #FFF8E7;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--at-light);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, .navbar-brand, .btn-at {
+      font-family: 'Fredoka', cursive;
+    }
+
+    /* Estilos de la Barra de Navegación */
+    .navbar {
+      background-color: var(--at-yellow) !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-size: 1.6rem;
+      color: var(--at-dark) !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: var(--at-dark) !important;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 0 5px;
+    }
+    .nav-link:hover {
+      color: #D60036 !important;
+      transform: translateY(-2px);
+    }
+
+    /* Botón personalizado estilo Adventure Time */
+    .btn-at {
+      background-color: var(--at-blue);
+      color: #fff;
+      border: 3px solid var(--at-dark);
+      border-radius: 50px;
+      padding: 10px 28px;
+      font-size: 1.2rem;
+      box-shadow: 4px 4px 0px var(--at-dark);
+      transition: all 0.2s ease;
+    }
+    .btn-at:hover {
+      background-color: var(--at-pink);
+      color: #fff;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--at-dark);
+    }
+    .btn-at:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--at-dark);
+    }
+
+    /* Sección Hero */
+    .hero-section {
+      background: linear-gradient(135deg, #70e1f5 0%, #ffd194 100%);
+      padding: 90px 0 70px 0;
+      border-bottom: 5px solid var(--at-dark);
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      color: var(--at-dark);
+      text-shadow: 3px 3px 0px #fff;
+    }
+
+    /* Cards de Personajes */
+    .character-card {
+      border: 3px solid var(--at-dark);
+      border-radius: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+      box-shadow: 5px 5px 0px var(--at-dark);
+    }
+    .character-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 8px 8px 0px var(--at-dark);
+    }
+
+    /* Carrusel de Imágenes */
+    .carousel-item img {
+      height: 420px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 4px solid var(--at-dark);
+    }
+    .carousel-container {
+      background-color: #ffffff;
+      border-radius: 25px;
+      padding: 25px;
+      border: 3px solid var(--at-dark);
+      box-shadow: 6px 6px 0px var(--at-dark);
+    }
+
+    /* Acordeón / FAQ */
+    .accordion-button:not(.collapsed) {
+      background-color: var(--at-yellow);
+      color: var(--at-dark);
+      font-weight: bold;
+    }
+    .accordion-button {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.1rem;
+    }
+    .accordion-item {
+      border: 2px solid var(--at-dark);
+      margin-bottom: 10px;
+      border-radius: 12px !important;
+      overflow: hidden;
+    }
+
+    /* Formulario de Contacto */
+    .contact-section {
+      background-color: #E2F0D9;
+      border-radius: 25px;
+      border: 3px solid var(--at-dark);
+      box-shadow: 6px 6px 0px var(--at-dark);
+    }
+    .form-control {
+      border: 2px solid var(--at-dark);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .form-control:focus {
+      border-color: var(--at-blue);
+      box-shadow: 0 0 0 0.25rem rgba(0, 168, 232, 0.25);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--at-dark);
+      color: #fff;
+      border-top: 5px solid var(--at-yellow);
+    }
+    footer a {
+      color: var(--at-yellow);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--at-pink);
+    }
+    .social-icon {
+      font-size: 1.6rem;
+      margin-right: 15px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .social-icon:hover {
+      color: var(--at-yellow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-shield-shaded text-danger fs-2"></i>
+        <span>¡Hora de Aventura!</span>
+      </a>
+      <button class="navbar-toggler border-2 border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#personajes">Personajes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button class="btn btn-at py-2 px-3 fs-6" data-bs-toggle="modal" data-bs-target="#promoModal">
+              <i class="bi bi-gift-fill me-1"></i> Ver Premio
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. PORTADA / HERO -->
+  <section id="inicio" class="hero-section text-center text-lg-start">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <span class="badge bg-warning text-dark border border-dark mb-2 px-3 py-2 fs-6">¡Matemático!</span>
+          <h1 class="hero-title display-4 fw-bold mb-3">Bienvenidos a la Tierra de Ooo</h1>
+          <p class="lead text-dark mb-4">
+            Acompaña a <strong>Finn el Humano</strong> y a <strong>Jake el Perro</strong> en un viaje lleno de magia, espadas mágicas, reinos de dulce y monstruos legendarios. ¡La aventura nunca termina!
+          </p>
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+            <a href="#galeria" class="btn btn-at text-center">
+              <i class="bi bi-compass me-2"></i>¡Explorar Galería!
+            </a>
+            <a href="#contacto" class="btn btn-outline-dark rounded-pill border-3 px-4 py-2 fs-5 fw-bold d-inline-flex align-items-center justify-content-center">
+              Unirse al Gremio
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMcE05rHvqqwjovr0YA7urKDGRPmBuAqIcpW3DzuqGVA&s=10" alt="Finn y Jake en la Tierra de Ooo" class="img-fluid rounded-4 border border-3 border-dark shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PERSONAJES PRINCIPALES -->
+  <section id="personajes" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-dark">Héroes y Amigos de Ooo</h2>
+        <p class="text-muted">Conoce a los habitantes más icónicos de nuestro mundo mágico.</p>
+      </div>
+      <div class="row g-4">
+        <!-- Finn -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card character-card h-100 text-center p-3">
+            <div class="p-3 bg-info bg-opacity-20 rounded-circle d-inline-block mx-auto mb-3">
+              <i class="bi bi-sword fs-1 text-primary"></i>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 card-title">Finn el Humano</h3>
+              <p class="card-text text-muted">El último humano de Ooo, un valiente héroe siempre listo para ayudar a quien lo necesite.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Jake -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card character-card h-100 text-center p-3">
+            <div class="p-3 bg-warning bg-opacity-20 rounded-circle d-inline-block mx-auto mb-3">
+              <i class="bi bi-magic fs-1 text-warning"></i>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 card-title">Jake el Perro</h3>
+              <p class="card-text text-muted">El mejor amigo y hermano de Finn, dotado con poderes mágicos para cambiar de forma.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Dulce Princesa -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card character-card h-100 text-center p-3">
+            <div class="p-3 bg-danger bg-opacity-20 rounded-circle d-inline-block mx-auto mb-3">
+              <i class="bi bi-heart-pulse-fill fs-1 text-danger"></i>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 card-title">Dulce Princesa</h3>
+              <p class="card-text text-muted">Gobernante del Dulce Reino, una brillante científica dedicada a proteger a su pueblo.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Marceline -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card character-card h-100 text-center p-3">
+            <div class="p-3 bg-dark bg-opacity-20 rounded-circle d-inline-block mx-auto mb-3">
+              <i class="bi bi-music-note-beamed fs-1 text-dark"></i>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 card-title">Marceline</h3>
+              <p class="card-text text-muted">La Reina Vampiro, una rockera milenaria que toca el bajo-hacha y adora el color rojo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CARRUSEL -->
+  <section id="galeria" class="py-5 bg-white border-top border-bottom border-3 border-dark">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="display-5 fw-bold text-dark">Galería de Aventuras</h2>
+        <p class="text-muted">Revive momentos inolvidables en la Tierra de Ooo</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="carousel-container">
+            <div id="adventureCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#adventureCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#adventureCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#adventureCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#adventureCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3500">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMcE05rHvqqwjovr0YA7urKDGRPmBuAqIcpW3DzuqGVA&s=10" class="d-block w-100" alt="Finn y Jake en acción">
+                  <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                    <h5>Finn & Jake</h5>
+                    <p>¡Listos para cualquier misión en la Casa del Árbol!</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3500">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-4TsmwhinLQ0BqJh6iaGQRdk7X6j41WcWhFG9N9aPoXiKE28RdWYhed4&s=10" class="d-block w-100" alt="Amigos de la Tierra de Ooo">
+                  <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                    <h5>Habitantes de Ooo</h5>
+                    <p>Un reino lleno de criaturas mágicas y amigos increíbles.</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3500">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoHwK6Aye3GGVypDS-rG9S3QhdB6GTwNPqUdQS5dcYPQ&s=10" class="d-block w-100" alt="Paisajes Mágicos">
+                  <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                    <h5>El Dulce Reino</h5>
+                    <p>Un lugar donde la ciencia y la magia dulce conviven.</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3500">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2W78Z9EeYIp3LzL1GSFQwyBseHTmRbKLnbL-aTYOytA&s=10" class="d-block w-100" alt="Momentos Épicos">
+                  <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                    <h5>Momentos Legendarios</h5>
+                    <p>Batallas contra el Rey Helado y secretos por descubrir.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#adventureCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#adventureCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PREGUNTAS FRECUENTES (FAQ) -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-dark">Preguntas Frecuentes</h2>
+        <p class="text-muted">Resuelve tus dudas sobre el universo de Adventure Time</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="accordionOoo">
+            
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="bi bi-question-circle-fill me-2 text-warning"></i> ¿Qué es la Tierra de Ooo?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionOoo">
+                <div class="accordion-body">
+                  La Tierra de Ooo es el escenario principal de Hora de Aventura. Es nuestro planeta Tierra mil años después de un evento catastrófico conocido como la <em>Guerra de los Champiñones</em>, habitado por magia y criaturas fantásticas.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="bi bi-star-fill me-2 text-warning"></i> ¿Cuáles son los poderes de Jake?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionOoo">
+                <div class="accordion-body">
+                  Jake posee la habilidad mágica de estirar, moldear y cambiar el tamaño y forma de su cuerpo a voluntad de formas infinitamente creativas.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <i class="bi bi-journal-bookmark-fill me-2 text-warning"></i> ¿Qué es el Enchiridión?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionOoo">
+                <div class="accordion-body">
+                  El Enchiridión es un libro antiguo para héroes de gran corazón. Contiene códigos de conducta, mapas secretos e instrucciones sobre cómo convertirse en un verdadero aventurero.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <i class="bi bi-controller me-2 text-warning"></i> ¿Quién es BMO?
+                </button>
+              </h3>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionOoo">
+                <div class="accordion-body">
+                  BMO es un consola de videojuegos viviente, cámara, despertador y amigo fiel que vive en la Casa del Árbol junto a Finn y Jake.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CONTACTO -->
+  <section id="contacto" class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contact-section p-4 p-md-5">
+            <div class="text-center mb-4">
+              <h2 class="display-6 fw-bold text-dark">¡Envía tu Mensaje a la Casa del Árbol!</h2>
+              <p class="text-dark">¿Tienes una misión heroica o sugerencia? Contáctanos directamente.</p>
+            </div>
+            
+            <form id="heroForm" action="#" method="POST" onsubmit="alert('¡Mensaje enviado con éxito a Finn y Jake!'); return false;">
+              <div class="mb-3">
+                <label for="nombre" class="form-label fw-bold">Nombre del Aventurero/a</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-2 border-dark"><i class="bi bi-person-fill"></i></span>
+                  <input type="text" class="form-control" id="nombre" placeholder="Ej: Finn Mertens" required>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="correo" class="form-label fw-bold">Correo Electrónico</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-2 border-dark"><i class="bi bi-envelope-fill"></i></span>
+                  <input type="email" class="form-control" id="correo" placeholder="ejemplo@dulcereino.com" required>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="mensaje" class="form-label fw-bold">Detalles de la Misión / Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe aquí tu petición o aventura..." required></textarea>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-at w-100 py-3">
+                  <i class="bi bi-send-fill me-2"></i>Enviar Mensaje Heroico
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MODAL -->
+  <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-3 border-dark rounded-4 style-modal">
+        <div class="modal-header bg-warning border-bottom border-2 border-dark">
+          <h5 class="modal-title fw-bold text-dark" id="promoModalLabel">
+            <i class="bi bi-trophy-fill text-danger me-2"></i>¡Promoción Especial BMO VIP!
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <i class="bi bi-controller text-info display-1 mb-3"></i>
+          <h4 class="fw-bold text-dark mb-3">¡Felicidades, Aventurero!</h4>
+          <p class="text-muted">
+            Has desbloqueado la medalla secreta de la <strong>Tierra de Ooo</strong>. Muestra este código en el Dulce Reino para obtener un pastel de manzana gratis de Trompitas.
+          </p>
+          <div class="bg-light border border-2 border-dark rounded p-3 mb-3">
+            <span class="fs-4 fw-bold text-primary font-monospace">MATEMATICO-2026</span>
+          </div>
+        </div>
+        <div class="modal-footer bg-light border-top border-2 border-dark justify-content-center">
+          <button type="button" class="btn btn-at py-2 px-4" data-bs-dismiss="modal">¡Álgebraico! Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. FOOTER -->
+  <footer class="pt-5 pb-3">
+    <div class="container">
+      <div class="row gy-4">
+        
+        <!-- Info breve -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="text-warning mb-3"><i class="bi bi-shield-fill-check me-2"></i>Hora de Aventura</h5>
+          <p class="small text-light">
+            Portal oficial dedicado a difundir la magia, cultura y misterios de la Tierra de Ooo. Desarrollado para verdaderos fans y aventureros de todo el multiverso.
+          </p>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-warning mb-3"><i class="bi bi-geo-alt-fill me-2"></i>Ubicación</h5>
+          <p class="small text-light mb-1"><i class="bi bi-house-door me-2"></i>Casa del Árbol #123</p>
+          <p class="small text-light mb-1"><i class="bi bi-map me-2"></i>Pradera de Ooo, Dulce Reino</p>
+          <p class="small text-light"><i class="bi bi-globe me-2"></i>Multiverso Dimensión 42</p>
+        </div>
+
+        <!-- Enlaces internos -->
+        <div class="col-lg-2 col-md-6">
+          <h5 class="text-warning mb-3">Enlaces</h5>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#inicio"><i class="bi bi-chevron-right me-1"></i>Inicio</a></li>
+            <li class="mb-2"><a href="#personajes"><i class="bi bi-chevron-right me-1"></i>Personajes</a></li>
+            <li class="mb-2"><a href="#galeria"><i class="bi bi-chevron-right me-1"></i>Galería</a></li>
+            <li class="mb-2"><a href="#faq"><i class="bi bi-chevron-right me-1"></i>Preguntas</a></li>
+            <li class="mb-2"><a href="#contacto"><i class="bi bi-chevron-right me-1"></i>Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="col-lg-3 col-md-6 text-md-start">
+          <h5 class="text-warning mb-3">Síguenos</h5>
+          <p class="small text-light">Conéctate en nuestras redes multiversales:</p>
+          <div>
+            <a href="#" class="social-icon" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon" title="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <!-- Derechos de autor -->
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+          <p class="small mb-0 text-secondary">&copy; 2026 Hora de Aventura / Tierra de Ooo. Todos los derechos reservados. Diseñado con Bootstrap 5.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
